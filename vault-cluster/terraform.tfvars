@@ -1,0 +1,5 @@
+region                 = "ap-northeast-1"
+hcp_hvn_cloud_provider = "aws"
+hcp_hvn_cider          = "172.25.16.0/20"
+hcp_vault_cluster_tier = "starter_small"
+hcp_vault_cluster_id   = "vault-cluster"
