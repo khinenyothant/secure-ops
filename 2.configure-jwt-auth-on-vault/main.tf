@@ -73,8 +73,11 @@ path "aws-master-account/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
-path "kvv2/data/unsecret" {
-  capabilities = ["create", "update", "read"]
+path "sys/mounts/kvv2" {
+  capabilities = ["create", "read", "update", "patch", "delete", "list"]
+}
+path "kvv2/*" {
+  capabilities = ["create", "read", "update", "patch", "delete", "list"]
 }
 EOT
 }
