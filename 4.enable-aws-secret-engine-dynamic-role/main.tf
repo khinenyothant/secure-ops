@@ -16,7 +16,7 @@ resource "vault_aws_secret_backend_role" "role" {
   backend         = vault_aws_secret_backend.aws.path
   name            = var.vault_aws_secret_backend_role_name
   credential_type = var.vault_aws_secret_backend_role_type
-  policy_arns     = var.vault_aws_secret_backend_role_policy_arn
+  policy_arns     = [var.vault_aws_secret_backend_role_policy_arn]
 }
 
 resource "time_sleep" "wait_before_fetching_creds" {
