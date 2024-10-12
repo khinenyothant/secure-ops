@@ -1,7 +1,7 @@
 variable "workspace_name" {
   description = "Workspace Name"
   type = string
-  default = "enable-aws-secret-engine-dynamic-role"
+  default = "7_enable-aws-auth-on-vault"
 }
 variable "org_name" {
   description = "Organization Name"
