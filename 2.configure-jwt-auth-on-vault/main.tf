@@ -72,6 +72,10 @@ path "aws-master-account/" {
 path "aws-master-account/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
+
+path "kvv2/data/unsecret" {
+  capabilities = ["create", "update", "read"]
+}
 EOT
 }
 

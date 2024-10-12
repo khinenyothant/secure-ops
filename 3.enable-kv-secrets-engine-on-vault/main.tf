@@ -7,13 +7,15 @@ resource "vault_mount" "kvv2" {
   description = "KV Version 2 secret engine mount"
 }
 
-#Store a Secret in the KV Engine
+#Create a secret in the KV secrets engine
 #vault kv put example/unsecret \ ...
 resource "vault_kv_secret_v2" "example" {
   mount               = vault_mount.kvv2.path
   name                = "unsecret"
   cas                 = 1
   delete_all_versions = true
+
+  # Define the secret data to be stored in JSON format
   data_json = jsonencode(
     {
       foo                         = "bar",
