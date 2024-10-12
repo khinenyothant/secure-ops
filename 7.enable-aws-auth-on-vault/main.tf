@@ -5,7 +5,7 @@ resource "vault_auth_backend" "aws" {
 }
 
 #create an AWS IAM client in Vault by using authenticate vault_ec2_user iam credentials
-#vault write auth/aws/login \...
+#vault write auth/<aws_auth_path>/config/client \
 resource "vault_aws_auth_backend_client" "aws" {
   backend    = vault_auth_backend.aws.path
   access_key = aws_iam_access_key.vault_ec2_user.id

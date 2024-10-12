@@ -1,73 +1,50 @@
-# The following variables must be set to allow runs
-# to authenticate to AWS.
-#
-# https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
-resource "tfe_variable" "enable_vault_provider_auth" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_PROVIDER_AUTH"
-  value    = "true"
-  category = "env"
-  description = "Enable the Workload Identity integration for Vault."
+variable "workspace_name" {
+  description = "Workspace Name"
+  type = string
+  default = "7_enable-aws-auth-on-vault"
 }
-resource "tfe_variable" "tfc_vault_addr" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key       = "TFC_VAULT_ADDR"
-  value     = var.vault_url
-  category  = "env"
-  sensitive = true
+variable "org_name" {
+  description = "Organization Name"
+  type = string
+  default = "hellocloud-knt"
+}
+variable "vault_url" {
   description = "The address of the Vault instance runs will access."
+  type = string
+  default = "https://vault-cluster-public-vault-d956a58b.a68d84be.z1.hashicorp.cloud:8200" ### have to change new vault cluster id
 }
-resource "tfe_variable" "tfc_vault_role" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_RUN_ROLE"
-  value    = var.run_role
-  category = "env"
-  description = "The Vault role runs will use to authenticate."
+variable "run_role" {
+  description = "TFC_VAULT_RUN_ROLE"
+  type = string
+  default = "admin-role"
 }
-resource "tfe_variable" "tfc_vault_namespace" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_NAMESPACE"
-  value    = var.vault_namespace
-  category = "env"
-  description = "Namespace that contains the AWS Secrets Engine."
+variable "vault_namespace" {
+  description = "TFC_VAULT_NAMESPACE"
+  type = string
+  default = "admin"
 }
-
-resource "tfe_variable" "aws_region" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "AWS_REGION"
-  value    = var.aws_region
-  category = "env"
-  
+variable "aws_region" {
+  description = "AWS_REGION"
+  type = string
+  default = "ap-northeast-1"
 }
-
-resource "tfe_variable" "tfc_vault_backed_aws_auth" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_BACKED_AWS_AUTH"
-  value    = var.tfc_vault_backed_aws_auth
-  category = "env"
-  
+variable "tfc_vault_backed_aws_auth" {
+  description = "TFC_VAULT_BACKED_AWS_AUTH"
+  type = string
+  default = "true"
 }
-
-resource "tfe_variable" "tfc_vault_backed_aws_auth_type" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_BACKED_AWS_AUTH_TYPE"
-  value    = var.tfc_vault_backed_aws_auth_type
-  category = "env"
-  
+variable "tfc_vault_backed_aws_auth_type" {
+  description = "TFC_VAULT_BACKED_AWS_AUTH_TYPE "
+  type = string
+  default = "iam_user"
 }
-
-resource "tfe_variable" "tfc_vault_backed_aws_run_vault_role" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_BACKED_AWS_RUN_VAULT_ROLE"
-  value    = var.tfc_vault_backed_aws_run_vault_role
-  category = "env"
-  
+variable "tfc_vault_backed_aws_run_vault_role" {
+  description = "TFC_VAULT_BACKED_AWS_RUN_VAULT_ROLE"
+  type = string
+  default = "admin-access-role"
 }
-
-resource "tfe_variable" "tfc_vault_backed_aws_mount_path" {
-  workspace_id = data.tfe_workspace.my_workspace.id
-  key      = "TFC_VAULT_BACKED_AWS_MOUNT_PATH"
-  value    = var.tfc_vault_backed_aws_mount_path
-  category = "env"
-  
+variable "tfc_vault_backed_aws_mount_path" {
+  description = "TFC_VAULT_BACKED_AWS_MOUNT_PATH"
+  type = string
+  default = "aws-master-vault-admin"
 }

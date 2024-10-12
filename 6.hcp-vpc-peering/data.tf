@@ -9,7 +9,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     organization = "hellocloud-knt"
     workspaces = {
-      name = "create-aws-vpc"
+      name = "5_create-aws-vpc"
     }
   }
 }

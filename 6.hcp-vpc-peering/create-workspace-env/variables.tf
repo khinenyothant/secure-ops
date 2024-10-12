@@ -1,7 +1,7 @@
 variable "workspace_name" {
   description = "Workspace Name"
   type = string
-  default = "enable-aws-secret-engine-dynamic-role"
+  default = "6_hcp-vpc-peering"
 }
 variable "org_name" {
   description = "Organization Name"
@@ -11,7 +11,7 @@ variable "org_name" {
 variable "vault_url" {
   description = "The address of the Vault instance runs will access."
   type = string
-  default = "https://vault-cluster-id-public-vault-2a5d42b2.18e736ba.z1.hashicorp.cloud:8200" ### have to change new vault cluster id
+  default = "https://vault-cluster-public-vault-d956a58b.a68d84be.z1.hashicorp.cloud:8200" ### have to change new vault cluster id
 }
 variable "run_role" {
   description = "TFC_VAULT_RUN_ROLE"
