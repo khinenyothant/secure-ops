@@ -1,1 +1,1 @@
-Configuration jwt auth method on Vault
+Configuration JWT auth method on Vault
