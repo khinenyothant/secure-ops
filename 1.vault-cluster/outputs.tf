@@ -27,3 +27,9 @@ output "vault_private_endpoint_url" {
   description = "HCP Vault Cluster vault_public_endpoint_url"
   value       = hcp_vault_cluster.vault_cluster.vault_private_endpoint_url
 }
+
+output "vault_admin_token" {
+  description = "HCP Vault Cluster Admin Token"
+  value       = hcp_vault_cluster_admin_token.admin_token.token
+  sensitive   = true
+}

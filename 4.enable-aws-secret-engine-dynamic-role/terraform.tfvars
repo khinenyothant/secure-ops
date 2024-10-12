@@ -1,0 +1,7 @@
+vault_admin_iam_user                     = "vault-admin"
+vault_admin_policy_name                  = "vault-admin-policy"
+aws_secret_engine_path                   = "aws-master-vault-admin"
+region                                   = "ap-northeast-1"
+vault_aws_secret_backend_role_name       = "admin-access-role"
+vault_aws_secret_backend_role_type       = "iam_user"
+vault_aws_secret_backend_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
