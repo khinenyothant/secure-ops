@@ -73,6 +73,14 @@ path "aws-master-account/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
+path "aws-master-vault-admin/" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+path "aws-master-vault-admin/*" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
 path "sys/mounts/kvv2" {
   capabilities = ["create", "read", "update", "patch", "delete", "list"]
 }
