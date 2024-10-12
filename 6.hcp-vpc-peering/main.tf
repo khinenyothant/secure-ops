@@ -1,6 +1,6 @@
 #create network peering connection between HCP VPN and AWS VPC
 resource "hcp_aws_network_peering" "dev" {
-  hvn_id          = hcp_hvn.hvn.hvn_id
+  hvn_id          = var.hvn_id
   peering_id      = "hvn-to-vpc-peer"
   peer_vpc_id     = data.terraform_remote_state.vpc.outputs.vpc_id
   peer_account_id = data.aws_vpc.selected.owner_id
