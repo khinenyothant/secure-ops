@@ -100,7 +100,7 @@ resource "aws_eip" "lb" {
 #Create nat gateway
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.lb.id
-  subnet_id     = aws_subnet.public_subnet.id
+  subnet_id     = aws_subnet.public_subnet[0].id
 
   tags = {
     Name = "vault-vpc NAT GW"
